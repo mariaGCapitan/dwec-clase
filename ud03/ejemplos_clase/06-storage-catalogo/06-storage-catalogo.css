@@ -1,0 +1,21 @@
+/* Aspecto del catálogo con favoritos y tema oscuro. El JavaScript solo añade
+   y quita clases. */
+
+.libro {
+  padding: 0.3rem 0.6rem;
+  border-left: 4px solid transparent;
+}
+
+.libro.destacado {
+  background: #fff4d6;
+  border-left-color: #f9a03f;
+}
+
+body.oscuro {
+  background: #222222;
+  color: #eeeeee;
+}
+
+body.oscuro .libro.destacado {
+  background: #4a3a14;
+}

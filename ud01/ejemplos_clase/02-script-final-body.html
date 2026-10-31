@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>02 · El script al final del body</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="estilo-ejemplos.css">
+</head>
+<body>
+  <h1 id="titulo">Título original</h1>
+
+  <div class="aviso">
+    <p><strong>El mismo archivo <code>titulo.js</code> que en el ejemplo 01.</strong>
+       Ni una letra cambiada.</p>
+    <p>Lo único distinto es <em>dónde</em> está la etiqueta <code>&lt;script&gt;</code>.</p>
+  </div>
+
+  <!-- Justo antes de cerrar el body: cuando el navegador llega aquí,
+       el <h1> ya existe. Es el arreglo clásico y sigue siendo válido.
+       Su pega: no empieza a descargar el archivo hasta llegar hasta aquí abajo. -->
+  <script src="titulo.js"></script>
+</body>
+</html>

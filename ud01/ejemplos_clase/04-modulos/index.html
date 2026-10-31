@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04 · Módulos ESM</title>
+  <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../estilo-ejemplos.css" />
+    <script type="module" src="main.js"></script>
+    <!-- type="module" hace cuatro cosas de golpe:
+       1. se comporta como defer
+       2. activa el modo estricto, siempre
+       3. tiene ámbito propio: no contamina el global
+       4. permite import / export                          -->
+  </head>
+  <body>
+    <h1 id="titulo">Cargando…</h1>
+
+    <p class="aviso">
+      <strong>Este archivo no funciona abierto con doble clic.</strong>
+      Un módulo se carga por HTTP, y el doble clic no es un servidor.
+    </p>
+    botón que llama Script1 botón llama Script2
+    <p>
+      Ábrelo con <strong>Live Server</strong>: clic derecho sobre el archivo en
+      VS Code → <em>Open with Live Server</em>.
+    </p>
+  </body>
+</html>

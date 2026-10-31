@@ -1,0 +1,9 @@
+/* Aspecto del buscador. El JavaScript solo añade y quita la clase "oculto". */
+
+.libro {
+  padding: 0.2rem 0.4rem;
+}
+
+.oculto {
+  display: none;
+}

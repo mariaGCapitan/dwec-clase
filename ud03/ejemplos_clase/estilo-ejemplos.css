@@ -1,0 +1,16 @@
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 640px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #3c3c3b;
+}
+h1 { border-bottom: 3px solid #1b75bb; padding-bottom: .3rem; }
+.aviso { background: #eaf3fa; border-left: 5px solid #1b75bb; padding: .8rem 1rem; margin: 1.5rem 0; }
+button { font: inherit; padding: .5rem 1.2rem; border: 2px solid #1b75bb; background: #fff;
+         color: #1b75bb; border-radius: 8px; cursor: pointer; }
+button:hover { background: #1b75bb; color: #fff; }
+.caja { background: #fef4e7; border: 2px dashed #f9a03f; padding: 1.2rem; margin-top: 1.2rem; border-radius: 10px; }
+code { background: #f2efe9; padding: .1em .35em; border-radius: 4px; font-size: .92em; }

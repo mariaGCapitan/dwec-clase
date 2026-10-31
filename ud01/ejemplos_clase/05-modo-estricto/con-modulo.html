@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>05b · Con módulo — el mismo código, ahora falla</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+
+  <!-- El MISMO archivo, cargado como módulo.
+       Un módulo está siempre en modo estricto y no se puede desactivar. -->
+  <script type="module" src="contador.js"></script>
+</head>
+<body>
+  <h1>Contador — versión con módulo</h1>
+
+  <p>Hemos llamado tres veces a <code>sumar()</code>. El contador vale: <strong id="valor">—</strong></p>
+
+  <div class="aviso">
+    <p><strong>Mismo archivo <code>contador.js</code>. Ni una letra cambiada.</strong></p>
+    <p>Lo único distinto es que el <code>&lt;script&gt;</code> lleva <code>type="module"</code>.</p>
+    <p>Ahora la consola muestra un <code>ReferenceError</code> rojo, el programa se detiene
+       en seco y el valor ni siquiera llega a escribirse. <strong>Y eso es lo que queremos.</strong></p>
+  </div>
+</body>
+</html>

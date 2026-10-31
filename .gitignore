@@ -1,0 +1,13 @@
+# Solo se publica la carpeta ejemplos_clase de cada unidad.
+# Todo lo demás (apuntes, PDF, prácticas, imágenes) se queda en local.
+/*
+!/.gitignore
+!/ud*/
+/ud*/*
+!/ud*/ejemplos_clase/
+
+# macOS y editores
+.DS_Store
+._*
+.vscode/
+node_modules/

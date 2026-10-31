@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>05 · Eventos</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <link rel="stylesheet" href="05-eventos-catalogo.css">
+  <script type="module" src="05-eventos-catalogo.js"></script>
+</head>
+<body>
+  <h1>Catálogo de la biblioteca</h1>
+
+  <p id="prestamos">Préstamos: 0</p>
+  <button id="pedir">Pedir un préstamo</button>
+  <button id="reiniciar">Reiniciar préstamos</button>
+
+  <p>
+    <label for="buscador">Buscar por título</label><br>
+    <input id="buscador" type="search" placeholder="Escribe un título">
+  </p>
+  <p id="resultados"></p>
+
+  <ul id="catalogo">
+    <li class="libro"><span class="titulo">La sombra del viento</span> · <span class="autor">Carlos Ruiz Zafón</span></li>
+    <li class="libro"><span class="titulo">El Quijote</span> · <span class="autor">Miguel de Cervantes</span></li>
+    <li class="libro"><span class="titulo">Rayuela</span> · <span class="autor">Julio Cortázar</span></li>
+    <li class="libro"><span class="titulo">Pedro Páramo</span> · <span class="autor">Juan Rulfo</span></li>
+  </ul>
+</body>
+</html>

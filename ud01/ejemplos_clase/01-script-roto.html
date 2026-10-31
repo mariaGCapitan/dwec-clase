@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>01 · El script que llega antes de tiempo</title>
+  <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="estilo-ejemplos.css" />
+
+    <!-- En el <head> y SIN defer: se ejecuta antes de que el navegador
+       haya leído el <body>, así que el <h1> todavía no existe. -->
+    <script src="titulo.js"></script>
+  </head>
+  <body>
+    <h1 id="titulo">Título original</h1>
+
+    <div class="aviso">
+      <p>El título de la página no cambia, y en la consola hay un mensaje.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+/* El CSS decide CÓMO se ve cada estado. El JavaScript solo dice en qué estado está. */
+
+#caja {
+  opacity: 1;
+}
+
+#caja.oculto {
+  display: none;
+}

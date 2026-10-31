@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>06 · Las capas mezcladas</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="estilo-ejemplos.css">
+</head>
+<body>
+  <h1>Aviso de cookies</h1>
+
+  <!-- Esto FUNCIONA. No hay ningún error. Y aun así está mal:
+       el comportamiento (JavaScript) vive dentro del marcado (HTML),
+       y el aspecto se decide desde JavaScript con .style              -->
+  <button onclick="document.querySelector('#caja').style.display='none'">Cerrar</button>
+
+  <div class="caja" id="caja">
+    <p>Usamos cookies para nada en particular.</p>
+  </div>
+
+  <p class="aviso">Pregunta: si ahora quisieras que además se desvaneciera en medio segundo,
+     y que este mismo botón funcionara en otras tres páginas, <strong>¿qué tendrías que tocar?</strong></p>
+</body>
+</html>

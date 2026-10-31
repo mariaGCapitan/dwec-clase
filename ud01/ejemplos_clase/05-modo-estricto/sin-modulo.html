@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>05a · Sin módulo — el error silencioso</title>
+  <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../estilo-ejemplos.css" />
+
+    <!-- Script clásico: SIN modo estricto -->
+    <script defer src="contador.js"></script>
+  </head>
+  <body>
+    <h1>Contador — versión sin módulo</h1>
+
+    <p>
+      Hemos llamado tres veces a <code>sumar()</code>. El contador vale:
+      <strong id="valor">—</strong>
+    </p>
+
+    <div class="aviso">
+      <p><strong>No hay ningún error en rojo.</strong> La página funciona.</p>
+      <p>
+        Pero el contador vale 0, y en la consola ha aparecido una variable
+        llamada <code>contdor</code> que <em>nadie ha declarado</em>.
+      </p>
+      <p>
+        Sin modo estricto, una errata no es un error:
+        <strong>es una variable nueva</strong>.
+      </p>
+    </div>
+  </body>
+</html>
