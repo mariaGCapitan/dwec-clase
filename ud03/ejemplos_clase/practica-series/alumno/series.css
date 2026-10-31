@@ -1,0 +1,197 @@
+/* Series por ver · estilo manga: tinta negra, tramas de puntos y viñetas. */
+
+:root {
+  --papel: #fffaf0;
+  --tinta: #111111;
+  --rosa: #ff3d7f;
+  --amarillo: #ffd23f;
+  --cian: #2ec4d6;
+  --panel: #ffffff;
+  --trama: rgba(17, 17, 17, 0.12);
+}
+
+body.oscuro {
+  --papel: #12142b;
+  --tinta: #f4f1ff;
+  --panel: #1d2045;
+  --trama: rgba(255, 255, 255, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 32px 16px 48px;
+  font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Trebuchet MS", sans-serif;
+  color: var(--tinta);
+  background-color: var(--papel);
+  /* trama de puntos, como la de los cómics impresos */
+  background-image: radial-gradient(var(--trama) 1.5px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+
+main, .cabecera {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ---- Cabecera ---------------------------------------------------------- */
+
+.cabecera {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.japones {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.4em;
+  color: var(--rosa);
+}
+
+h1 {
+  margin: 4px 0 12px;
+  font-family: "Bangers", "Impact", sans-serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 12vw, 5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--amarillo);
+  -webkit-text-stroke: 2px #111111;
+  text-shadow: 5px 5px 0 var(--rosa);
+  transform: rotate(-2deg);
+}
+
+#contador {
+  display: inline-block;
+  margin: 0;
+  padding: 8px 18px;
+  font-weight: 700;
+  background: var(--panel);
+  border: 3px solid var(--tinta);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+
+/* ---- Viñetas ----------------------------------------------------------- */
+
+.panel {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  background: var(--panel);
+  border: 3px solid var(--tinta);
+  box-shadow: 6px 6px 0 var(--tinta);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Bangers", "Impact", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: var(--rosa);
+}
+
+.fila {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--tinta);
+  background: var(--papel);
+  border: 3px solid var(--tinta);
+  border-radius: 0;
+}
+
+input:focus {
+  outline: 3px solid var(--cian);
+  outline-offset: 2px;
+}
+
+button {
+  padding: 8px 16px;
+  font-family: "Bangers", "Impact", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: #111111;
+  background: var(--amarillo);
+  border: 3px solid var(--tinta);
+  box-shadow: 3px 3px 0 var(--tinta);
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--tinta);
+}
+
+.secundario {
+  display: block;
+  margin: 28px auto 0;
+  background: var(--cian);
+}
+
+/* ---- La lista ---------------------------------------------------------- */
+
+#series {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+#series li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 3px solid var(--tinta);
+  border-left: 12px solid var(--rosa);
+  box-shadow: 5px 5px 0 var(--tinta);
+}
+
+#series li:nth-child(even) {
+  border-left-color: var(--cian);
+}
+
+.titulo {
+  flex: 1;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#series li button {
+  font-size: 1rem;
+  padding: 4px 12px;
+  background: var(--rosa);
+  color: #ffffff;
+}
+
+/* Una serie ya vista */
+#series li.vista {
+  border-left-color: #9a9a9a;
+  opacity: 0.6;
+}
+
+#series li.vista .titulo {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+}
+
+/* Lo que no coincide con la búsqueda */
+.oculto {
+  display: none !important;
+}

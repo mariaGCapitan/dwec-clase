@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Series por ver</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap">
+  <link rel="stylesheet" href="series.css">
+  <script type="module" src="series.js"></script>
+</head>
+<body>
+  <header class="cabecera">
+    <p class="japones">見たいアニメ</p>
+    <h1>Series por ver</h1>
+    <p id="contador"></p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <label for="titulo">Añadir una serie</label>
+      <div class="fila">
+        <input id="titulo" type="text" autocomplete="off">
+        <button id="anadir">Añadir</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <label for="buscador">Buscar en la lista</label>
+      <input id="buscador" type="text" autocomplete="off">
+    </section>
+
+    <ul id="series">
+      
+    </ul>
+
+    <button id="tema" class="secundario">Cambiar tema</button>
+  </main>
+</body>
+</html>
