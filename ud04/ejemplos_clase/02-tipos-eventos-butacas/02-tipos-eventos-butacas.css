@@ -1,0 +1,52 @@
+/* Aspecto de la sala. El JavaScript solo añade y quita la clase "elegida" y cambia textos. */
+
+.pantalla {
+  background: #3c3c3b;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+  padding: 0.3rem;
+  border-radius: 0 0 40% 40%;
+  margin: 1.5rem 0;
+}
+
+.fila {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.butaca {
+  padding: 0.5rem 0.6rem;
+  min-width: 3rem;
+}
+
+.butaca.ocupada {
+  background: #d6d6d6;
+  border-color: #9a9a9a;
+  color: #6b6b6b;
+}
+
+.butaca.elegida {
+  background: #33ab88;
+  border-color: #008f00;
+  color: #fff;
+}
+
+#aviso {
+  text-align: center;
+  font-weight: 600;
+}
+
+#info {
+  text-align: center;
+  min-height: 1.6em;
+  color: #6b6b6b;
+}
+
+#ayuda {
+  font-size: 0.9rem;
+  color: #6b6b6b;
+  margin-left: 0.5rem;
+}

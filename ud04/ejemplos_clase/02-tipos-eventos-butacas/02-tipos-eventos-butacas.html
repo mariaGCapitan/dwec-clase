@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>02 · Tipos de eventos</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <link rel="stylesheet" href="02-tipos-eventos-butacas.css">
+  <script type="module" src="02-tipos-eventos-butacas.js"></script>
+</head>
+<body>
+  <h1>Cines del Sur · Sala 3</h1>
+  <p>Sesión de las 20:30 · Fila F</p>
+
+  <div id="pantalla" class="pantalla">PANTALLA</div>
+
+  <div class="fila">
+    <button class="butaca">F1</button>
+    <button class="butaca">F2</button>
+    <button class="butaca">F3</button>
+    <button class="butaca ocupada">F4</button>
+    <button class="butaca ocupada">F5</button>
+    <button class="butaca">F6</button>
+    <button class="butaca">F7</button>
+    <button class="butaca">F8</button>
+  </div>
+
+  <p id="info"></p>
+  <p id="aviso">Elige una butaca</p>
+
+  <p>
+    <button onclick="desmarcarTodas()">Desmarcar todas</button>
+  </p>
+
+  <p>
+    <label for="codigo">Código de descuento</label><br>
+    <input id="codigo" type="text">
+    <span id="ayuda"></span>
+  </p>
+</body>
+</html>
