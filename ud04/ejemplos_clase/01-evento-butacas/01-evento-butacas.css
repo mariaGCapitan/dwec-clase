@@ -1,7 +1,7 @@
 /* Aspecto de la sala. El JavaScript solo añade y quita la clase "elegida". */
 
 .pantalla {
-  background: #3c3c3b;
+  background: var(--tinta);
   color: #fff;
   text-align: center;
   letter-spacing: 0.4em;
@@ -29,8 +29,8 @@
 }
 
 .butaca.elegida {
-  background: #33ab88;
-  border-color: #008f00;
+  background: var(--verde);
+  border-color: #2e8a6c;
   color: #fff;
 }
 

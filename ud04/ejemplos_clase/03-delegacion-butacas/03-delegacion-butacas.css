@@ -1,0 +1,61 @@
+/* Aspecto de la sala. El JavaScript crea las filas y las butacas, y solo
+   añade y quita la clase "elegida". */
+
+.pantalla {
+  background: var(--tinta);
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+  padding: 0.3rem;
+  border-radius: 0 0 40% 40%;
+  margin: 1.5rem 0;
+}
+
+#sala {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+}
+
+.fila {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.butaca {
+  padding: 0.3rem 0.4rem;
+  min-width: 2.6rem;
+  font-size: 0.95rem;
+}
+
+.butaca .letra {
+  font-size: 0.7em;
+  opacity: 0.7;
+  margin-right: 0.1em;
+}
+
+.butaca.ocupada {
+  background: #d6d6d6;
+  border-color: #9a9a9a;
+  color: #6b6b6b;
+}
+
+.butaca.elegida {
+  background: var(--verde);
+  border-color: #2e8a6c;
+  color: #fff;
+}
+
+#info {
+  text-align: center;
+  min-height: 1.6em;
+  color: var(--magenta);
+}
+
+#aviso {
+  text-align: center;
+  font-weight: 600;
+}
