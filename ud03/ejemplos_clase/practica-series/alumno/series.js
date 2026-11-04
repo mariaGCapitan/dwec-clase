@@ -15,6 +15,7 @@ const lista = document.querySelector("#series");
 const botonAnadir = document.querySelector("#anadir");
 const inputTitulo = document.querySelector("#titulo");
 const contador = document.querySelector("#contador");
+const buscador = document.querySelector("#buscador")
 
 //Vamos a cambiar el tema
 
@@ -76,6 +77,14 @@ function pintar(){
       guardar();
       pintar();
     })
+
+    //AQUÍ FILTRAR, dependiendo de lo que haya en el Input, mostraré unas series u otras
+    const texto = buscador.value.toLowerCase().trim();
+    //Oculta si no contiene lo escrito
+    if (!serie.titulo.toLowerCase().trim().includes(texto)){
+      item.classList.add("oculto");
+    }
+
     item.append(nombre, boton_quitar);
     lista.append(item);
   }
@@ -109,5 +118,8 @@ botonAnadir.addEventListener("click", () => {
     alert(inputTitulo.value);
     inputTitulo.value = "";
   }
-})
+});
+
+//Evento en el input
+buscador.addEventListener("input", pintar);
 
