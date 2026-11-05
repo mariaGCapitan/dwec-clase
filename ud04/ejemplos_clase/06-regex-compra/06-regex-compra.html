@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>06 · Expresiones regulares</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <link rel="stylesheet" href="06-regex-compra.css">
+  <script type="module" src="06-regex-compra.js"></script>
+</head>
+<body>
+  <h1>Cine GCapitán · Comprar entradas</h1>
+  <p>Sala 3 · Sesión de las 20:30</p>
+
+  <form id="compra" novalidate>
+    <p>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" required>
+      <span class="error"></span>
+    </p>
+    <p>
+      <label for="telefono">Teléfono móvil</label>
+      <input id="telefono" name="telefono" type="tel" pattern="[67]\d{8}" required>
+      <span class="error"></span>
+    </p>
+    <p>
+      <label for="codigo">Código de descuento (opcional)</label>
+      <input id="codigo" name="codigo" type="text">
+      <span class="error"></span>
+    </p>
+    <p>
+      <label for="socio">Número de socio (opcional)</label>
+      <input id="socio" name="socio" type="text">
+      <span class="error"></span>
+    </p>
+    <p>
+      <button type="submit">Comprar</button>
+    </p>
+  </form>
+
+  <p id="aviso"></p>
+</body>
+</html>

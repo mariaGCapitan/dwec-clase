@@ -1,0 +1,64 @@
+/* Aspecto del formulario. El JavaScript solo escribe los mensajes de error
+   y el aviso; el borde rojo de los campos lo pone el CSS con :user-invalid. */
+
+#compra {
+  background: #fff;
+  border: 1px solid #e4e1dc;
+  border-top: 4px solid var(--azul);
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+}
+
+#compra label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+#compra input[type="text"],
+#compra input[type="email"],
+#compra input[type="number"],
+#compra select {
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.35rem 0.5rem;
+  border: 2px solid #e4e1dc;
+  border-radius: 6px;
+  background: #fff;
+}
+
+#compra input:focus,
+#compra select:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+#compra .casilla label {
+  display: inline;
+  font-weight: normal;
+}
+
+/* Un campo que no cumple sus atributos, después de haber escrito en él o de
+   intentar enviar. */
+#compra input:user-invalid {
+  border-color: var(--magenta);
+}
+
+.error {
+  display: block;
+  color: var(--magenta);
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+#aviso {
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-left: 5px solid var(--verde);
+  background: #eaf6f1;
+}
+
+#aviso:empty {
+  display: none;
+}

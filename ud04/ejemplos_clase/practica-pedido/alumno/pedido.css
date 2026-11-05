@@ -1,0 +1,198 @@
+/* Taberna GCapitán. Colores corporativos del IES Gran Capitán.
+   El JavaScript no cambia estilos: solo añade y quita clases y escribe
+   textos. Clases que puede usar: "oculto" (esconde un elemento). */
+
+:root {
+  --azul: #1b75bb;
+  --magenta: #e5006d;
+  --naranja: #f9a03f;
+  --verde: #3aa985;
+  --tinta: #3c3c3b;
+  --papel: #fdfcfa;
+  --gris: #7d7d7c;
+  --borde: #e4e1dc;
+  --naranja-suave: #fef4e7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  margin: 0;
+  color: var(--tinta);
+  background: var(--papel);
+  line-height: 1.5;
+}
+
+header, main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header { padding-top: 2rem; }
+
+h1 {
+  margin: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 6px solid;
+  border-image: linear-gradient(to right,
+    var(--azul) 0 25%, var(--magenta) 25% 50%,
+    var(--naranja) 50% 75%, var(--verde) 75% 100%) 1;
+}
+
+.lema { color: var(--gris); margin-top: 0.4rem; }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  margin: 1.5rem auto 3rem;
+}
+
+@media (max-width: 820px) {
+  main { grid-template-columns: 1fr; }
+}
+
+h2 { font-size: 1.25rem; margin-top: 0; }
+h3 { font-size: 1rem; margin: 0.6rem 0 0; }
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input[type="text"], input[type="tel"], select {
+  font: inherit;
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border: 2px solid var(--borde);
+  border-radius: 6px;
+  background: #fff;
+}
+
+input:focus, select:focus { outline: none; border-color: var(--azul); }
+#entrega input:user-invalid, #entrega select:user-invalid { border-color: var(--magenta); }
+
+button { font: inherit; cursor: pointer; }
+
+/* La carta */
+
+#carta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plato {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+.plato:hover { background: #eaf3fa; }
+
+.plato .nombre { font-weight: 600; }
+
+.plato .precio { color: var(--gris); }
+
+.plato .botones {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.plato .cantidad {
+  min-width: 1.5em;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mas, .menos {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--azul);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--azul);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mas:hover, .menos:hover { background: var(--azul); color: #fff; }
+
+.oculto { display: none; }
+
+#info {
+  min-height: 1.6em;
+  color: var(--magenta);
+  font-weight: 600;
+}
+
+/* El pedido */
+
+.zona-pedido {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-top: 4px solid var(--azul);
+  border-radius: 8px;
+  padding: 1rem;
+  align-self: start;
+}
+
+#lineas {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+
+#lineas li {
+  padding: 0.2rem 0;
+  border-bottom: 1px dashed var(--borde);
+}
+
+#totales {
+  background: var(--naranja-suave);
+  border-left: 5px solid var(--naranja);
+  padding: 0.5rem 0.8rem;
+  white-space: pre-line;
+}
+
+#vaciar {
+  background: none;
+  border: none;
+  color: var(--gris);
+  text-decoration: underline;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+#entrega button[type="submit"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid var(--azul);
+  border-radius: 8px;
+  background: var(--azul);
+  color: #fff;
+  font-weight: 600;
+}
+
+.error {
+  display: block;
+  color: var(--magenta);
+  font-size: 0.8rem;
+  min-height: 1.1em;
+}
+
+#aviso {
+  font-weight: 600;
+  padding: 0.6rem 0.8rem;
+  border-left: 5px solid var(--verde);
+  background: #eaf6f1;
+}
+
+#aviso:empty { display: none; }

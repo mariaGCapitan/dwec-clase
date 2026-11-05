@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>04 · Formularios</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <link rel="stylesheet" href="04-formulario-compra.css">
+  <script type="module" src="04-formulario-compra.js"></script>
+</head>
+<body>
+  <h1>Cine GCapitán · Comprar entradas</h1>
+  <p>Sala 3 · <span id="sesion-elegida">Sesión de las 20:30</span></p>
+
+  <form id="compra">
+    <p>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text">
+    </p>
+    <p>
+      <label for="correo">Correo electrónico</label>
+      <input id="correo" name="correo" type="text">
+    </p>
+    <p>
+      <label for="entradas">Número de entradas</label>
+      <input id="entradas" name="entradas" type="number" value="1">
+    </p>
+    <p>
+      <label for="sesion">Sesión</label>
+      <select id="sesion" name="sesion">
+        <option value="18:00">18:00</option>
+        <option value="20:30" selected>20:30</option>
+        <option value="22:45">22:45</option>
+      </select>
+    </p>
+    <p class="casilla">
+      <input id="condiciones" name="condiciones" type="checkbox">
+      <label for="condiciones">Acepto las condiciones de compra</label>
+    </p>
+    <p>
+      <button type="submit">Comprar</button>
+    </p>
+  </form>
+
+  <p id="resumen"></p>
+</body>
+</html>

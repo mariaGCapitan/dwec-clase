@@ -1,0 +1,55 @@
+/* Aspecto del formulario. El JavaScript solo lee los campos y escribe el
+   resumen. */
+
+#compra {
+  background: #fff;
+  border: 1px solid #e4e1dc;
+  border-top: 4px solid var(--azul);
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+}
+
+#compra label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+#compra input[type="text"],
+#compra input[type="number"],
+#compra select {
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.35rem 0.5rem;
+  border: 2px solid #e4e1dc;
+  border-radius: 6px;
+  background: #fff;
+}
+
+#compra input:focus,
+#compra select:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+#compra .casilla label {
+  display: inline;
+  font-weight: normal;
+}
+
+#sesion-elegida {
+  color: var(--magenta);
+  font-weight: 600;
+}
+
+#resumen {
+  background: var(--naranja-suave);
+  border-left: 5px solid var(--naranja);
+  padding: 0.6rem 1rem;
+  white-space: pre-line;
+}
+
+#resumen:empty {
+  display: none;
+}

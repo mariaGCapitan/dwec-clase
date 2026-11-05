@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedidos · Taberna GCapitán</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="pedido.css">
+  <script type="module" src="pedido.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Taberna GCapitán · Pedidos a domicilio</h1>
+    <p class="lema">Cocina cordobesa en tu casa · Reparto en Córdoba capital</p>
+  </header>
+
+  <main>
+    <section class="zona-carta">
+      <h2>La carta</h2>
+      <p>
+        <label for="buscador">Buscar un plato</label>
+        <input id="buscador" type="text" placeholder="Escribe el nombre de un plato">
+      </p>
+      <ul id="carta"></ul>
+      <p id="info"></p>
+    </section>
+
+    <section class="zona-pedido">
+      <h2>Tu pedido</h2>
+      <ul id="lineas"></ul>
+      <p id="totales"></p>
+      <button id="vaciar" type="button">Vaciar el pedido</button>
+
+      <form id="entrega">
+        <h3>Datos de entrega</h3>
+        <p>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text">
+          <span class="error"></span>
+        </p>
+        <p>
+          <label for="telefono">Teléfono móvil</label>
+          <input id="telefono" name="telefono" type="text">
+          <span class="error"></span>
+        </p>
+        <p>
+          <label for="direccion">Dirección</label>
+          <input id="direccion" name="direccion" type="text">
+          <span class="error"></span>
+        </p>
+        <p>
+          <label for="cp">Código postal</label>
+          <input id="cp" name="cp" type="text">
+          <span class="error"></span>
+        </p>
+        <p>
+          <label for="hora">Hora de entrega</label>
+          <select id="hora" name="hora">
+            <option value="">Elige una hora</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="21:00">21:00</option>
+            <option value="21:30">21:30</option>
+          </select>
+          <span class="error"></span>
+        </p>
+        <p>
+          <button type="submit">Enviar pedido</button>
+        </p>
+      </form>
+
+      <p id="aviso"></p>
+    </section>
+  </main>
+</body>
+</html>

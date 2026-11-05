@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>05 · Validación</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <link rel="stylesheet" href="05-validacion-compra.css">
+  <script type="module" src="05-validacion-compra.js"></script>
+</head>
+<body>
+  <h1>Cine GCapitán · Comprar entradas</h1>
+  <p>Sala 3 · Sesión de las 20:30</p>
+
+  <form id="compra">
+    <p>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" required>
+      <span class="error"></span>
+    </p>
+    <p>
+      <label for="correo">Correo electrónico</label>
+      <input id="correo" name="correo" type="email" required>
+      <span class="error"></span>
+    </p>
+    <p>
+      <label for="repetir-correo">Repite el correo</label>
+      <input id="repetir-correo" name="repetir" type="email" required>
+      <span class="error"></span>
+    </p>
+    <p>
+      <label for="entradas">Número de entradas (máximo 8)</label>
+      <input id="entradas" name="entradas" type="number" min="1" max="8" value="1" required>
+      <span class="error"></span>
+    </p>
+    <p class="casilla">
+      <input id="condiciones" name="condiciones" type="checkbox" required>
+      <label for="condiciones">Acepto las condiciones de compra</label>
+      <span class="error"></span>
+    </p>
+    <p>
+      <button type="submit">Comprar</button>
+    </p>
+  </form>
+
+  <p id="aviso"></p>
+</body>
+</html>
