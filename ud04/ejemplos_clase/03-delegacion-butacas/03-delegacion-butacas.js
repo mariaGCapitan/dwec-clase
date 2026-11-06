@@ -39,8 +39,7 @@ for (const letra of filas){
     
 // })
 
-
-// const aviso = document.querySelector("#aviso");
+const aviso = document.querySelector("#aviso");
 
 // sala.addEventListener("click", (evento) => {//Vamos a colorear las butacas
 //     if (!evento.target.classList.contains("butaca")){
@@ -60,7 +59,7 @@ sala.addEventListener("click",(evento)=>{
         return;
     }
     if(butacaSelect.classList.contains("ocupada")){
-        aviso.textContent = `la butaca ${evento.target.textContent} está ocupada`;
+        aviso.textContent = `la butaca ${butacaSelect.textContent} está ocupada`;
         return;
     }
     butacaSelect.classList.toggle("elegida");
