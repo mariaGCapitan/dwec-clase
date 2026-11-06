@@ -41,6 +41,7 @@ for (const letra of filas){
 
 const aviso = document.querySelector("#aviso");
 
+//Vemos que esto falla porque tiene los span, y hay que pulsar sobre un filo para que sea útil. Por esto, Delegación con closet.
 // sala.addEventListener("click", (evento) => {//Vamos a colorear las butacas
 //     if (!evento.target.classList.contains("butaca")){
 //         return;
