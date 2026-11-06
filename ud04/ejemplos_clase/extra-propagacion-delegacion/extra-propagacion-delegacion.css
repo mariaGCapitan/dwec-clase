@@ -1,0 +1,64 @@
+/* Aspecto del ejemplo. El JavaScript no cambia estilos: solo escribe textos
+   y añade elementos. */
+
+h2 {
+  font-size: 1.15rem;
+  margin-top: 2rem;
+}
+
+/* Las tres cajas, una dentro de otra. Cada una con su color para que se vea
+   dónde empieza y dónde acaba. */
+.caja {
+  padding: 0.8rem 1rem 1rem;
+  border: 3px solid;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+#sala { border-color: var(--azul); background: #eaf3fa; color: var(--azul); }
+#fila { border-color: var(--naranja); background: #fef4e7; color: #a4620c; margin-top: 0.5rem; }
+#butaca { border-color: var(--magenta); background: #fdeaf3; color: var(--magenta); margin-top: 0.5rem; text-align: center; }
+
+#registro {
+  min-height: 1.6em;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+}
+
+.columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.6rem;
+}
+
+.lista li {
+  padding: 0.4rem 0.7rem;
+  margin-bottom: 0.3rem;
+  border: 2px solid var(--azul);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.lista li:hover { background: #eaf3fa; }
+
+.lista span { color: var(--gris); font-size: 0.85rem; }
+
+#eleccion {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1rem;
+  border-left: 5px solid var(--verde);
+  background: #eaf6f1;
+  font-weight: 600;
+}

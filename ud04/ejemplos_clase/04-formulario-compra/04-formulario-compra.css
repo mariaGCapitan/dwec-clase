@@ -38,6 +38,12 @@
   font-weight: normal;
 }
 
+#compra .etiqueta {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
 #sesion-elegida {
   color: var(--magenta);
   font-weight: 600;

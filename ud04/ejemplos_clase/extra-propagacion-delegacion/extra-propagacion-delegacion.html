@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Extra · Propagación y delegación</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <link rel="stylesheet" href="extra-propagacion-delegacion.css">
+  <script type="module" src="extra-propagacion-delegacion.js"></script>
+</head>
+<body>
+  <h1>Cine GCapitán · Propagación y delegación</h1>
+
+  <h2>1. El clic sube</h2>
+  <div id="sala" class="caja">
+    SALA
+    <div id="fila" class="caja">
+      FILA
+      <div id="butaca" class="caja">BUTACA</div>
+    </div>
+  </div>
+  <ol id="registro"></ol>
+  <button id="limpiar">Limpiar el registro</button>
+
+  <h2>2. Una función por elemento, o una para todos</h2>
+  <div class="columnas">
+    <div>
+      <h3>Sin delegación</h3>
+      <ul id="lista-sin" class="lista">
+        <li>Frieren</li>
+        <li>Dune</li>
+        <li>Coco</li>
+      </ul>
+      <button id="anadir-sin">Añadir película</button>
+    </div>
+    <div>
+      <h3>Con delegación</h3>
+      <ul id="lista-con" class="lista">
+        <li>Frieren</li>
+        <li>Dune</li>
+        <li>Coco</li>
+      </ul>
+      <button id="anadir-con">Añadir película</button>
+    </div>
+  </div>
+
+  <h2>3. Cuando hay etiquetas dentro</h2>
+  <ul id="lista-detalle" class="lista">
+    <li><strong>Frieren</strong> <span>2023</span></li>
+    <li><strong>Dune</strong> <span>2021</span></li>
+    <li><strong>Coco</strong> <span>2017</span></li>
+  </ul>
+
+  <p id="eleccion">Pulsa una película</p>
+</body>
+</html>
