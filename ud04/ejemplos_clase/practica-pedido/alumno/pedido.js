@@ -17,11 +17,51 @@ const listaCarta = document.querySelector("#listaCarta");
 const info = document.querySelector("#info");
 const buscador = document.querySelector("#buscador");
 const lineas = document.querySelector("#lineas");
+const totales = document.querySelector("#totales");
+const vaciar = document.querySelector("#vaciar");
+const formulario = document.querySelector("#entrega");
+const campos = formulario.querySelectorAll("input, select");
 
 //Definimos las reglas del negocio
 const pedidoMinimo = 10;
 const envioGratis = 20;
 const gastosEnvio = 2.5;
+
+
+//FUNCIONES
+//Función subtotal
+function subtotal(){
+  let suma = 0;
+  for (let i = 0; i < carta.length; i++){
+    suma = suma + carta[i].precio * cantidades[i];
+  }
+  return suma;
+}
+//Función de calcular el gasto de envío
+function envio(){
+  if (subtotal() >= envioGratis){
+    return 0;
+  }
+  return gastosEnvio;
+}
+
+//Definimos la función Comprobar cada campo
+function comprobar(campo){
+
+  //El mensaje se escribe en el <span class=error....> de cada <p>
+  const parrafo = campo.closest("p");//Quien es el padre del input o select que recibe, que será un <p>
+  const error = parrafo.querySelector(".error");//Dentro de ESE párrafo, me da su span de error
+  if(campo.validity.valueMissing){
+    //en su span ponga "Este campo es obligacotio"
+    error.textContent = "Este campo es obligacotio";
+  }else if (campo.validity.patternMismatch && campo.id === "telefono") {
+    error.textContent = "El teléfono tiene 9 cifras y empieza por 6 o 7";
+  }else if (campo.validity.patternMismatch && campo.id === "cp") {
+    error.textContent = "Solo repartimos en Córdoba capital (140xx)";
+  } else {
+    error.textContent = "";
+  }
+}
 
 //Vamos a cargar el pedido
 const guardado = localStorage.getItem("cantidades");
@@ -31,6 +71,7 @@ let cantidades = guardado === null ? carta.map(() => 0) : JSON.parse(guardado);
 function guardar(){
   localStorage.setItem("cantidades",JSON.stringify(cantidades));
 }
+
 //guardar();
 function pintar(){
   //Lo primero que hace el LIMPIAR el la lista de platos de la carta <li>
@@ -92,6 +133,16 @@ function pintar(){
       lineas.append(linea);
     }
   }
+  //Pintamos los subtotales. y totales
+  if(subtotal() === 0){
+    totales.textContent ="Todavía no has pedido nada";
+  }else{
+    totales.textContent = `Subtotal: ${subtotal().toFixed(2)} €\n` +
+    `Envío: ${envio().toFixed(2)} €\n` +
+    `Total: ${(subtotal() + envio()).toFixed(2)} €`;
+  }
+ 
+
 }
 
 pintar();
@@ -99,4 +150,31 @@ pintar();
 //Definimos el evento del Input de buscar
 buscador.addEventListener("input", ()=>{
   pintar();
+});
+
+//Vaciar pedido con el botón
+vaciar.addEventListener("click", ()=>{
+  if(subtotal() === 0){
+    return;
+  }
+  if(!confirm("Vaciar el pedido?")){
+    return;
+  }
+  cantidades = carta.map(()=> 0);
+  guardar();
+  pintar();
 })
+
+//Validar el formulario
+//Definimos enevtos a cada campo cuando pierda el foco que compruebe
+for(const campo of campos){
+  campo.addEventListener("blur", () =>{
+    comprobar(campo);
+  })
+}
+
+// for(const campo of campos){
+//   campo.addEventListener("input", () =>{
+//     comprobar(campo);
+//   })
+// }
