@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>03 · async y await</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <script type="module" src="03-async-tiempo.js"></script>
+</head>
+<body>
+  <h1>El tiempo GCapitán</h1>
+  <p>Datos reales de Open-Meteo · necesita conexión</p>
+
+  <p>
+    <button id="cordoba">Tiempo en Córdoba</button>
+    <button id="equivocado">Servidor equivocado</button>
+    <button id="imposible">Latitud imposible</button>
+    <button id="dos">Córdoba y Sevilla a la vez</button>
+  </p>
+
+  <p class="aviso" id="estado">Sin consultar</p>
+
+  <div class="caja">
+    <p><button id="comparar">Comparar Córdoba y Sevilla</button></p>
+    <p id="comparacion"></p>
+  </div>
+</body>
+</html>

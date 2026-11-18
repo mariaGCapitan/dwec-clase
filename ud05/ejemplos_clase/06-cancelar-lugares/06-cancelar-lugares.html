@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>06 · Cancelar una petición</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <script type="module" src="06-cancelar-lugares.js"></script>
+</head>
+<body>
+  <h1>El tiempo GCapitán</h1>
+  <p>Buscar mientras se escribe · Open-Meteo</p>
+
+  <p>
+    <label for="sin">Sin cancelar</label>
+    <input id="sin" type="text">
+  </p>
+  <p class="aviso" id="resultado-sin">Escribe un lugar</p>
+
+  <p>
+    <label for="con">Cancelando</label>
+    <input id="con" type="text">
+  </p>
+  <p class="aviso" id="resultado-con">Escribe un lugar</p>
+
+  <div class="caja">
+    <p>
+      <label for="lento">Con tiempo máximo de 3 s</label>
+      <input id="lento" type="text" value="Córdoba">
+      <button id="buscar-lento">Buscar</button>
+    </p>
+    <p id="resultado-lento"></p>
+  </div>
+</body>
+</html>
