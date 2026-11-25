@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gremio de Aventureros de Roa</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="gremio.css">
+  <script type="module" src="gremio.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Gremio de Aventureros de Roa</h1>
+    <p class="lema">Tablón de misiones · Reino de Asura</p>
+    <button id="tema" type="button">Claro / oscuro</button>
+  </header>
+
+  <main>
+    <!-- Vista 1: registro. Se ve si no hay aventurero guardado. -->
+    <section id="registro">
+      <h2>Registro en el gremio</h2>
+      <form id="formulario" novalidate>
+        <p>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required>
+          <span class="error"></span>
+        </p>
+        <p>
+          <label for="raza">Raza</label>
+          <select id="raza" name="raza" required>
+            <option value="">— Elige —</option>
+            <option>Humano</option>
+            <option>Migurd</option>
+            <option>Supard</option>
+            <option>Elfo</option>
+            <option>Bestia</option>
+          </select>
+          <span class="error"></span>
+        </p>
+        <p>
+          <label for="pueblo">Pueblo de origen</label>
+          <input id="pueblo" name="pueblo" type="text" placeholder="Sharia" required>
+          <span class="error"></span>
+        </p>
+        <button type="submit">Registrarse</button>
+      </form>
+    </section>
+
+    <!-- Vista 2: el tablón. Se ve si hay aventurero guardado. -->
+    <section id="tablon" class="oculto">
+      <div id="ficha"></div>
+
+      <div class="columnas">
+        <div>
+          <h2>Misiones</h2>
+          <ul id="misiones"></ul>
+        </div>
+
+        <div>
+          <h2>Completadas</h2>
+          <table>
+            <thead>
+              <tr><th>Misión</th><th>Plata</th></tr>
+            </thead>
+            <!-- Dos filas de ejemplo de cómo queda cada misión completada.
+                 Las de verdad se crean desde JavaScript. -->
+            <tbody id="completadas">
+              <tr>
+                <td>Recoger hierbas en el bosque de Fittoa</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Escoltar un carro hasta Roa</td>
+                <td>4</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Bolsa</h2>
+          <p id="bolsa"></p>
+        </div>
+
+        <div id="pergamino">Pasa el ratón por una misión para leerla.</div>
+      </div>
+
+      <p class="pie">
+        <button id="retirarse" type="button">Retirarse del gremio</button>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

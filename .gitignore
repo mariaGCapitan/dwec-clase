@@ -1,10 +1,12 @@
-# Solo se publica la carpeta ejemplos_clase de cada unidad.
+# Solo se publican la carpeta ejemplos_clase de cada unidad
+# y la carpeta examenes, con los exámenes y prácticas resueltos.
 # Todo lo demás (apuntes, PDF, prácticas, imágenes) se queda en local.
 /*
 !/.gitignore
 !/ud*/
 /ud*/*
 !/ud*/ejemplos_clase/
+!/examenes/
 
 # macOS y editores
 .DS_Store

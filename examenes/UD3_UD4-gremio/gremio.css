@@ -1,0 +1,183 @@
+/* Gremio de Aventureros · estilo anime.
+   Fuentes de Google Fonts (Dela Gothic One y Zen Maru Gothic); sin red, salen las de reserva. */
+
+:root {
+  --panel: rgba(255, 250, 240, 0.86);
+  --tarjeta: rgba(255, 255, 255, 0.75);
+  --tinta: #2a1f3d;
+  --magia: #6a4cff;
+  --magia-clara: #a98bff;
+  --fuego: #ff5e5e;
+  --oro: #ffb703;
+  --verde: #2e9e6a;
+  --sombra: 0 6px 20px rgba(40, 20, 80, 0.35);
+}
+
+/* Tema oscuro: la clase "oscuro" en el body cambia los colores. */
+body.oscuro {
+  --panel: rgba(22, 16, 40, 0.86);
+  --tarjeta: rgba(50, 38, 85, 0.75);
+  --tinta: #f1ecff;
+  --verde: #6fe0a8;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Zen Maru Gothic", "Trebuchet MS", sans-serif;
+  color: var(--tinta);
+  background: #1b1430 url("img/fondo.jpg") center / cover fixed;
+}
+
+/* ---- Cabecera ---- */
+header {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+}
+header h1 {
+  margin: 0;
+  font-family: "Dela Gothic One", Impact, sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  letter-spacing: 0.02em;
+  color: var(--oro);
+  -webkit-text-stroke: 2px #2a1f3d;
+  text-shadow: 4px 4px 0 var(--magia), 0 0 18px rgba(255, 183, 3, 0.7);
+}
+.lema {
+  display: inline-block;
+  margin: 0.5rem 0 0;
+  padding: 0.2rem 0.9rem;
+  border-radius: 999px;
+  background: var(--magia);
+  color: white;
+  font-weight: 700;
+}
+
+/* ---- Panel central ---- */
+main {
+  max-width: 1050px;
+  margin: 1rem auto 2rem;
+  padding: 1.5rem;
+  background: var(--panel);
+  border: 3px solid var(--magia-clara);
+  border-radius: 22px;
+  box-shadow: var(--sombra), 0 0 30px rgba(169, 139, 255, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+h2 {
+  font-family: "Dela Gothic One", Impact, sans-serif;
+  font-size: 1.4rem;
+  color: var(--magia);
+  margin: 0.5rem 0;
+}
+body.oscuro h2 { color: var(--magia-clara); }
+
+.oculto { display: none; }
+
+/* ---- Botones ---- */
+button {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+  background: var(--magia);
+  border: 0;
+  border-radius: 8px;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+}
+button:hover { background: var(--magia-clara); }
+
+#tema { margin-top: 0.8rem; background: #2a1f3d; }
+#retirarse { background: var(--fuego); }
+.pie {
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+  border-top: 2px dashed var(--magia-clara);
+  text-align: right;
+}
+
+/* ---- Registro ---- */
+form p { display: grid; grid-template-columns: 10rem 1fr; gap: 0.3rem 1rem; align-items: center; }
+input, select {
+  font: inherit;
+  padding: 0.35rem 0.6rem;
+  border: 2px solid var(--magia-clara);
+  border-radius: 10px;
+  background: white;
+}
+.error { grid-column: 2; color: var(--fuego); font-weight: 700; font-size: 0.9rem; }
+
+/* ---- Tablón ---- */
+#ficha {
+  display: inline-block;
+  font-family: "Dela Gothic One", Impact, sans-serif;
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  border-radius: 12px;
+  background: var(--oro);
+  color: #2a1f3d;
+  box-shadow: 3px 3px 0 #2a1f3d;
+  margin-right: 1rem;
+}
+
+.columnas { display: grid; grid-template-columns: 1fr 1fr 15rem; gap: 1.5rem; margin-top: 1rem; }
+@media (max-width: 850px) { .columnas { grid-template-columns: 1fr; } }
+
+ul { list-style: none; padding: 0; margin: 0.5rem 0; }
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--tarjeta);
+  border-left: 6px solid var(--magia);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(40, 20, 80, 0.2);
+}
+/* La tabla de completadas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--tarjeta);
+  border-radius: 12px;
+  overflow: hidden;
+}
+th {
+  text-align: left;
+  padding: 0.5rem 0.7rem;
+  background: var(--magia);
+  color: white;
+}
+td { padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--magia-clara); }
+td:nth-child(2) { text-align: center; font-weight: 700; }
+#misiones li:hover { border-left-color: var(--oro); }
+table { margin-bottom: 1rem; }
+th { background: var(--verde); }
+
+
+
+#bolsa {
+  padding: 0.6rem 0.8rem;
+  background: var(--tarjeta);
+  border-left: 6px solid var(--oro);
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+/* El pergamino, como bocadillo de manga. */
+#pergamino {
+  position: relative;
+  align-self: start;
+  padding: 1rem;
+  min-height: 6rem;
+  background: white;
+  color: #2a1f3d;
+  border: 3px solid #2a1f3d;
+  border-radius: 18px;
+  box-shadow: 4px 4px 0 var(--magia);
+  font-weight: 700;
+}
