@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>02 · Leer con GET</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <script type="module" src="02-get-portatiles.js"></script>
+</head>
+<body>
+  <h1>Portátiles GCapitán</h1>
+  <p>Inventario de portátiles del centro</p>
+
+  <p class="aviso" id="aviso">La lista todavía no se ha pedido</p>
+  <ul id="lista"></ul>
+
+  <p>
+    <label for="id">Id del portátil</label>
+    <input id="id" type="number" min="1" value="3">
+    <button id="ver">Ver ficha</button>
+  </p>
+
+  <p class="aviso" id="ficha">Escribe un id y pulsa Ver ficha</p>
+</body>
+</html>

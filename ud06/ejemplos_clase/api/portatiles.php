@@ -16,7 +16,7 @@
 // En PUT basta con enviar los campos que cambian.
 // Los errores llegan siempre como { "error": "texto del error" }.
 
-require 'conexion.php';
+require_once __DIR__ . '/conexion.php';
 
 $metodo  = $_SERVER['REQUEST_METHOD'];
 $id      = isset($_GET['id']) ? (int) $_GET['id'] : null;

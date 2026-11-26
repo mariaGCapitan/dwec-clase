@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>04 · Editar y borrar con PUT y DELETE</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <script type="module" src="04-put-delete-portatiles.js"></script>
+</head>
+<body>
+  <h1>Portátiles GCapitán</h1>
+  <p>Préstamos y bajas del inventario</p>
+
+  <ul id="lista"></ul>
+
+  <p>
+    <label for="id">Id del portátil</label>
+    <input id="id" type="number" min="1" value="3">
+  </p>
+  <p>
+    <label for="nombre">Se lo lleva</label>
+    <input id="nombre" type="text" value="Ana Torres">
+  </p>
+  <p>
+    <button id="prestar">Prestar</button>
+    <button id="devolver">Devolver</button>
+    <button id="borrar">Borrar</button>
+  </p>
+  <p><button id="mal-escrito">Borrar con el método mal escrito</button></p>
+
+  <p class="aviso" id="resultado">Escribe un id y elige qué hacer con ese portátil</p>
+</body>
+</html>

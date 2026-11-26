@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>05 · Iniciar sesión</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <script type="module" src="05-sesion-portatiles.js"></script>
+</head>
+<body>
+  <h1>Portátiles GCapitán</h1>
+  <p>Gestión del inventario · acceso de secretaría</p>
+
+  <form id="login">
+    <p>
+      <label for="usuario">Usuario</label>
+      <input id="usuario" name="usuario" type="text" value="secretaria">
+    </p>
+    <p>
+      <label for="clave">Contraseña</label>
+      <input id="clave" name="clave" type="password">
+    </p>
+    <p><button>Iniciar sesión</button></p>
+  </form>
+
+  <p class="aviso" id="aviso">Comprobando la sesión…</p>
+  <ul id="lista"></ul>
+
+  <p><button id="cerrar">Cerrar sesión</button></p>
+</body>
+</html>

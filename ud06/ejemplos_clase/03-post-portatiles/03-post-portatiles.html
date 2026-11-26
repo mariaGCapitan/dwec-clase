@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>03 · Crear con POST</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../estilo-ejemplos.css">
+  <script type="module" src="03-post-portatiles.js"></script>
+</head>
+<body>
+  <h1>Portátiles GCapitán</h1>
+  <p>Alta de portátiles en el inventario</p>
+
+  <ul id="lista"></ul>
+
+  <p><button id="prueba">Alta de prueba: GC-09</button></p>
+
+  <form id="alta">
+    <p>
+      <label for="codigo">Código</label>
+      <input id="codigo" name="codigo" type="text" value="GC-10">
+    </p>
+    <p>
+      <label for="modelo">Modelo</label>
+      <input id="modelo" name="modelo" type="text" value="Dell Latitude 3540">
+    </p>
+    <p><button>Dar de alta</button></p>
+  </form>
+
+  <p class="aviso" id="resultado">Todavía no se ha dado de alta ningún portátil</p>
+</body>
+</html>
