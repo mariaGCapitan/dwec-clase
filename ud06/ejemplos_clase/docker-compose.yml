@@ -1,0 +1,47 @@
+# Servidor de la UD6: Portátiles GCapitán.
+#
+# Dos contenedores:
+#   web  · Apache con PHP. Sirve los archivos de esta carpeta (las páginas de
+#          los ejemplos y la API de la carpeta api/) en http://localhost:8000
+#   db   · MySQL con la base de datos «portatiles», creada con servidor/bbdd.sql
+#
+# Arrancar:                 docker compose up -d
+# Ver qué está en marcha:   docker compose ps
+# Parar (conserva datos):   docker compose down
+# Volver a los datos de partida: docker compose down -v  y después  docker compose up -d
+
+name: portatiles-gcapitan
+
+services:
+  web:
+    build: ./servidor
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      TZ: Europe/Madrid
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.4
+    environment:
+      TZ: Europe/Madrid
+      MYSQL_ROOT_PASSWORD: dwec
+      MYSQL_DATABASE: portatiles
+      MYSQL_USER: dwec
+      MYSQL_PASSWORD: dwec
+    volumes:
+      - ./servidor/bbdd.sql:/docker-entrypoint-initdb.d/bbdd.sql:ro
+      - datos:/var/lib/mysql
+    # La web no arranca hasta que la tabla de portátiles existe y responde.
+    healthcheck:
+      test: ["CMD", "mysql", "-h", "127.0.0.1", "-udwec", "-pdwec", "portatiles", "-e", "SELECT 1 FROM portatiles LIMIT 1"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+
+volumes:
+  datos:
