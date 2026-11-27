@@ -1,5 +1,5 @@
 
-const lista = document.querySelector("#lista");
+
 const aviso = document.querySelector("#aviso");
 
 async function cargarLista() {
@@ -12,11 +12,30 @@ async function cargarLista() {
         }
         const portatiles = await respuesta.json();
 
-        console.log("Tengo algo del servidor: ", portatiles[0].modelo);
+        //console.log("Tengo algo del servidor: ", portatiles[0].modelo);
+       //Vamos a ver cuántos portátiles tenemos
+       aviso.textContent = ` El servidor tiene ${portatiles.length} portátiles en inventario.`
         
     }catch(error){
-    aviso.textContent = `No se ha podido cargar la lista. ${error.message}`;
+        aviso.textContent = `No se ha podido consultar. ${error.message}`;
     }
 }
 
 lista.addEventListener("click",cargarLista);
+
+async function pedirInexistente() {
+    aviso.textContent = "Consultando...";
+
+    try{
+        const respuesta = await fetch("api/portatilMal.php");//no existe el servidor
+        if(!respuesta.ok){
+            throw new Error(`Código ${respuesta.status}`);
+        }
+        const datos = await respuesta.json();
+        aviso.textContent = `Han llegado datos: ${datos}`;
+
+    }catch(error){
+         aviso.textContent = `No se ha podido consultar. ${error.message}`;
+    }
+}
+document.querySelector("#inexistente").addEventListener("click", pedirInexistente)
