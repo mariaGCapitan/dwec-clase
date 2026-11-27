@@ -6,15 +6,20 @@
 //
 //   GET    portatiles.php          → 200 y la lista de todos los portátiles
 //   GET    portatiles.php?id=3     → 200 y el portátil 3, o 404 si no existe
-//   POST   portatiles.php          → 201 y el portátil creado, o 400 si faltan datos
-//   PUT    portatiles.php?id=3     → 200 y el portátil 3 cambiado, o 404 si no existe
+//   POST   portatiles.php          → 201 y el portátil creado, o 400 si los datos no valen
+//   PUT    portatiles.php?id=3     → 200 y el portátil 3 cambiado, 404 si no existe,
+//                                     o 400 si los datos no valen
 //   DELETE portatiles.php?id=3     → 200 y un mensaje, o 404 si no existe
 //   cualquier otro método          → 405
 //
 // POST y PUT reciben los datos en el cuerpo, en JSON:
 //   { "codigo": "GC-09", "modelo": "HP ProBook 440", "estado": "disponible", "prestado_a": null }
 // En PUT basta con enviar los campos que cambian.
-// Los errores llegan siempre como { "error": "texto del error" }.
+// Los datos no valen (400) si faltan el código o el modelo, si el estado no es
+// uno de los tres, o si un texto es más largo de lo que admite la tabla:
+// código, 10 caracteres; modelo, 60; prestado_a, 80.
+// Los errores llegan siempre como { "error": "texto del error" }, también el
+// 500 si falla algo en el servidor.
 
 require_once __DIR__ . '/conexion.php';
 
@@ -40,6 +45,28 @@ function leerCuerpo(): array
     return $datos;
 }
 
+// Comprueba los datos de un portátil antes de guardarlo, al crearlo y al
+// editarlo. Si algo no vale, contesta 400 con el motivo y termina.
+function comprobarDatos(array $p, array $estados): void
+{
+    if (empty($p['codigo']) || empty($p['modelo'])) {
+        responder(400, ['error' => 'Faltan el código o el modelo']);
+    }
+    if (!in_array($p['estado'], $estados, true)) {
+        responder(400, ['error' => 'El estado tiene que ser disponible, prestado o en reparación']);
+    }
+    // Lo que cabe en cada columna de la tabla.
+    if (mb_strlen($p['codigo']) > 10) {
+        responder(400, ['error' => 'El código admite como mucho 10 caracteres']);
+    }
+    if (mb_strlen($p['modelo']) > 60) {
+        responder(400, ['error' => 'El modelo admite como mucho 60 caracteres']);
+    }
+    if ($p['prestado_a'] !== null && mb_strlen($p['prestado_a']) > 80) {
+        responder(400, ['error' => 'El nombre de quien lo tiene admite como mucho 80 caracteres']);
+    }
+}
+
 switch ($metodo) {
 
     case 'GET':
@@ -55,15 +82,16 @@ switch ($metodo) {
 
     case 'POST':
         $datos = leerCuerpo();
-        if (empty($datos['codigo']) || empty($datos['modelo'])) {
-            responder(400, ['error' => 'Faltan el código o el modelo']);
-        }
-        $estado = $datos['estado'] ?? 'disponible';
-        if (!in_array($estado, $estados, true)) {
-            responder(400, ['error' => 'El estado tiene que ser disponible, prestado o en reparación']);
-        }
+        // Lo que no llega se rellena: el estado, «disponible», y prestado_a, null.
+        $nuevo = [
+            'codigo'     => $datos['codigo'] ?? '',
+            'modelo'     => $datos['modelo'] ?? '',
+            'estado'     => $datos['estado'] ?? 'disponible',
+            'prestado_a' => $datos['prestado_a'] ?? null,
+        ];
+        comprobarDatos($nuevo, $estados);
         $consulta = $pdo->prepare('INSERT INTO portatiles (codigo, modelo, estado, prestado_a) VALUES (?, ?, ?, ?)');
-        $consulta->execute([$datos['codigo'], $datos['modelo'], $estado, $datos['prestado_a'] ?? null]);
+        $consulta->execute([$nuevo['codigo'], $nuevo['modelo'], $nuevo['estado'], $nuevo['prestado_a']]);
         responder(201, buscar($pdo, (int) $pdo->lastInsertId()));
 
     case 'PUT':
@@ -76,9 +104,7 @@ switch ($metodo) {
         }
         // Se parte de lo que hay y se cambia solo lo que llega en el cuerpo.
         $nuevo = array_merge($portatil, leerCuerpo());
-        if (!in_array($nuevo['estado'], $estados, true)) {
-            responder(400, ['error' => 'El estado tiene que ser disponible, prestado o en reparación']);
-        }
+        comprobarDatos($nuevo, $estados);
         $consulta = $pdo->prepare('UPDATE portatiles SET codigo = ?, modelo = ?, estado = ?, prestado_a = ? WHERE id = ?');
         $consulta->execute([$nuevo['codigo'], $nuevo['modelo'], $nuevo['estado'], $nuevo['prestado_a'], $id]);
         responder(200, buscar($pdo, $id));

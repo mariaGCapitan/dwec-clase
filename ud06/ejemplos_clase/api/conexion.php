@@ -5,6 +5,16 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
+// Los avisos de PHP no se escriben en la respuesta: romperían el JSON.
+ini_set('display_errors', '0');
+
+// Cualquier error que no esté previsto contesta un 500 en JSON, en vez de una
+// página de error en HTML.
+set_exception_handler(function (Throwable $e) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Error en el servidor'], JSON_UNESCAPED_UNICODE);
+});
+
 try {
     $pdo = new PDO(
         'mysql:host=db;dbname=portatiles;charset=utf8mb4',
